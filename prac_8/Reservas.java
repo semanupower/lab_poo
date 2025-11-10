@@ -3,7 +3,7 @@ package prac_8;
 public class Reservas {
     String nombre;
     String autor;
-    Integer miembro_id;
+    Integer matricula;
 
     public String getNombreLibro() {
         return nombre;
@@ -13,12 +13,12 @@ public class Reservas {
         this.nombre = nombre;
     }
 
-    public Integer getMiembro_id() {
-        return miembro_id;
+    public Integer getMatricula() {
+        return matricula;
     }
 
-    public void setMiembro_id(Integer miembro_id) {
-        this.miembro_id = miembro_id;
+    public void setMatricula(Integer matricula) {
+        this.matricula = matricula;
     }
 
     public String getAutor() {
@@ -29,9 +29,18 @@ public class Reservas {
         this.autor = autor;
     }
 
-    public Reservas(String nombre, String autor, Integer miembro_id) {
+    public Reservas(String nombre, String autor, Integer matricula) {
         this.nombre = nombre;
         this.autor = autor;
-        this.miembro_id = miembro_id;
+        this.matricula = matricula;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservas{" +
+                "nombre='" + nombre + '\'' +
+                ", autor='" + autor + '\'' +
+                ", matricula=" + matricula +
+                '}';
     }
 }

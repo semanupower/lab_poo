@@ -11,8 +11,8 @@ public class BibliotecaM573 {
 
     public BibliotecaM573() {}
 
-    public void addLibro (String titulo, String autor, String ISBN, String editorial, int year) {
-        Libro239 libro = new Libro239(titulo, autor, ISBN, editorial, year);
+    public void addLibro (String titulo, String autor, int year) {
+        Libro239 libro = new Libro239(titulo, autor, year);
         libros.add(libro);
         long StartTime = System.currentTimeMillis();
         long StopTime = System.currentTimeMillis();
@@ -21,8 +21,8 @@ public class BibliotecaM573 {
         System.out.println("Tiempo en ordenar los libros: " + Tiempo);
     }
 
-    public void addUsuario(String nombre, String apellido, Integer id, Integer matricula) {
-        Miembro miembro = new Miembro(nombre, apellido, id, matricula);
+    public void addUsuario(String nombre, String apellido, Integer matricula) {
+        Miembro miembro = new Miembro(nombre, apellido, matricula);
         miembros.put(matricula, miembro);
     }
 
@@ -76,6 +76,33 @@ public class BibliotecaM573 {
             }
         }
     }
+
+    public void printLibros() {
+        if (libros.isEmpty()) {
+            System.out.println("No hay libros registrados.");
+            return;
+        }
+        long StartTime = System.currentTimeMillis();
+        long StopTime = System.currentTimeMillis();
+        long Tiempo = StopTime - StartTime;
+        for (Libro239 libro : libros) {
+            System.out.println(libro.toString());
+        }
+    }
+
+    public void printReservas() {
+        if (colaReservas.isEmpty()) {
+            System.out.println("No hay prestamos registrados.");
+            return;
+        }
+        long StartTime = System.currentTimeMillis();
+        long StopTime = System.currentTimeMillis();
+        long Tiempo = StopTime - StartTime;
+        for (Reservas reservas : colaReservas) {
+            System.out.println(reservas.toString());
+        }
+    }
+
 
     public void setCategoriasUnicas(String categoria) {
         categoriasUnicas.add(categoria);

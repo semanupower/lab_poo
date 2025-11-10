@@ -1,16 +1,18 @@
 package prac_8;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Miembro {
     private String nombre;
     private String apellido;
-    private Integer id;
+    private static final AtomicInteger id = new AtomicInteger(0);
     private Integer matricula;
 
-    public Miembro(String nombre, String apellido, Integer id, Integer matricula) {
+    public Miembro(String nombre, String apellido, Integer matricula) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.id = id;
         this.matricula = matricula;
+        id.incrementAndGet();
     }
 
     public String getNombre() {
@@ -30,12 +32,9 @@ public class Miembro {
     }
 
     public Integer getId() {
-        return id;
+        return id.intValue();
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getMatricula() {
         return matricula;
